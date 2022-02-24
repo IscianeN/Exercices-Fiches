@@ -35,13 +35,6 @@ def get_trips_price(a_list_of_trips):
 #notre variable = somme de prix de voyages
 all_prices_summed = get_trips_price(our_trips_list) 
 
-# stocker dans des variables chaque ligne de voyages de our_trips_list
-
-our_trip1=our_trips_list[0]
-our_trip2=our_trips_list[1]
-our_trip3=our_trips_list[2]
-our_trip4=our_trips_list[3]
-
 
 # fonction qui permet de voir la compatibilité de l'heure de départ d'un voyage 2 et de l'heure d'arrivée 1
 def check_compatibility(trip1, trip2):
@@ -51,12 +44,34 @@ def check_compatibility(trip1, trip2):
         return False
     else : return True
 
-#appel et test de notre fonction sur trois structures : ça marche !!
-print(check_compatibility(our_trip1,our_trip4))
-print(check_compatibility(our_trip1,our_trip2))
+
+def find_compatibilities(trips):
+    compatibles_flights=[]
+    for i in range(len(trips)):
+        for j in range(len(trips)): 
+            if check_compatibility(trips[i],trips[j]) == True :
+                 compatibles_flights.append([trips[i],trips[j]])
+    return compatibles_flights
+
+our_compatibles_trips=find_compatibilities(our_trips_list)
+
+print(our_compatibles_trips)
 
 
-
+def get_best_price(trips):
+        each_prices = []
+        earnest_flights=0
+        each_prices1=get_trips_price(trips[0])
+        each_prices2=get_trips_price(trips[1])
+        each_prices3=get_trips_price(trips[2])
+        each_prices.extend([each_prices1,each_prices2,each_prices3])
+        for i in each_prices:
+            for j in each_prices:
+                if i > j:
+                    earnest_flights=i
+        return earnest_flights
+       
+print(get_best_price(our_compatibles_trips))
 
     
 
