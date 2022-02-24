@@ -35,7 +35,6 @@ def get_trips_price(a_list_of_trips):
 #notre variable = somme de prix de voyages
 all_prices_summed = get_trips_price(our_trips_list) 
 
-
 # fonction qui permet de voir la compatibilité de l'heure de départ d'un voyage 2 et de l'heure d'arrivée 1
 def check_compatibility(trip1, trip2):
     ended_hour_trip1=int(trip1[1])+int(trip1[2])
@@ -55,12 +54,12 @@ def find_compatibilities(trips):
 
 our_compatibles_trips=find_compatibilities(our_trips_list)
 
-print(our_compatibles_trips)
+
 
 
 def get_best_price(trips):
         each_prices = []
-        earnest_flights=0
+        earnest_flights=0        
         each_prices1=get_trips_price(trips[0])
         each_prices2=get_trips_price(trips[1])
         each_prices3=get_trips_price(trips[2])
@@ -70,8 +69,29 @@ def get_best_price(trips):
                 if i > j:
                     earnest_flights=i
         return earnest_flights
+
+
+# print(get_best_price(our_compatibles_trips))
+
+# def get_best_price(trips):
+#         prices =[]
+#         for i in trips:
+#             for j in trips(trips[i]):
+#                 for k in trips(trips[0][1]):
+#                     prices = get_trips_price(j)           
+#                     return prices          
        
-print(get_best_price(our_compatibles_trips))
+# print(get_best_price(our_compatibles_trips))
 
-    
+def get_best_price(trips):
+    earnest_flight=0
+    my_dict = {"client":[],"start":[],"duration":[],"price":[]}
+    for j, val in enumerate(trips):
+        
+        return my_dict
 
+        
+          'item #{} = {}'.format(j+1,val)
+
+print(our_compatibles_trips)
+get_best_price(our_compatibles_trips)
