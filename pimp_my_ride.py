@@ -57,41 +57,31 @@ our_compatibles_trips=find_compatibilities(our_trips_list)
 
 
 
-def get_best_price(trips):
-        each_prices = []
-        earnest_flights=0        
-        each_prices1=get_trips_price(trips[0])
-        each_prices2=get_trips_price(trips[1])
-        each_prices3=get_trips_price(trips[2])
-        each_prices.extend([each_prices1,each_prices2,each_prices3])
-        for i in each_prices:
-            for j in each_prices:
-                if i > j:
-                    earnest_flights=i
-        return earnest_flights
-
-
-# print(get_best_price(our_compatibles_trips))
-
 # def get_best_price(trips):
-#         prices =[]
-#         for i in trips:
-#             for j in trips(trips[i]):
-#                 for k in trips(trips[0][1]):
-#                     prices = get_trips_price(j)           
-#                     return prices          
-       
-# print(get_best_price(our_compatibles_trips))
+#         each_prices = []
+#         earnest_flights=0        
+#         each_prices1=get_trips_price(trips[0])
+#         each_prices2=get_trips_price(trips[1])
+#         each_prices3=get_trips_price(trips[2])
+#         each_prices.extend([each_prices1,each_prices2,each_prices3])
+#         for i in each_prices:
+#             for j in each_prices:
+#                 if i > j:
+#                     earnest_flights=i
+#         return earnest_flights
+
+
+
 
 def get_best_price(trips):
-    earnest_flight=0
-    my_dict = {"client":[],"start":[],"duration":[],"price":[]}
-    for j, val in enumerate(trips):
-        
-        return my_dict
+    #on instancie une liste
+        each_prices = []
+    #on passe à ta méthode get_trips_price chaque couple via une boucle range   
+        for i in range(0,3):
+            each_prices.append(get_trips_price(trips[i]))
+    #on retourne le plus grand prix via la méthode max de Python
+        return max(each_prices)
 
-        
-          'item #{} = {}'.format(j+1,val)
 
 print(our_compatibles_trips)
-get_best_price(our_compatibles_trips)
+print(get_best_price(our_compatibles_trips))
